@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+//navigation API
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+//screen
+import HomeScreen from './screens/HOME/HomeScreen';
+import HomeAcceptedScreen from './screens/HOME/HomeAcceptedScreen';
+import HomeDeniedScreen from './screens/HOME/HomeDeniedScreen';
+import InputDateScreen from './screens/HOME/InputDateScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name='homeScreen' component={HomeScreen}/>
+          <Stack.Screen name='homeAcceptedScreen' component={HomeAcceptedScreen}/>
+          <Stack.Screen name='HomeDeniedScreen' component={HomeDeniedScreen}/>
+          <Stack.Screen name='InputDateScreen' component={InputDateScreen}/>
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
