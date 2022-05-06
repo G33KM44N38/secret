@@ -14,7 +14,7 @@ const NavigationActScreen = () => {
         <Text style={styles.text}>Act 3</Text>
       </Pressable>
       <Pressable style={styles.button}>
-        <Text style={styles.text}>Act 4</Text>
+        <Text style={styles.text}>Fin</Text>
       </Pressable>
     </SafeAreaView>
   )
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "black",
     width: "80%",
-    margin: 10,
+    margin: 15,
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center"
