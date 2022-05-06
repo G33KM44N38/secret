@@ -1,13 +1,13 @@
 import { SafeAreaView, Text, Pressable, StyleSheet, TextInput } from 'react-native'
 import React, {useState} from 'react'
 
-const InputDateScreen = () => {
+const InputDateScreen = ({navigation}) => {
   
   const [Date, setDate] = useState()
 
   const validateDate = () => {
     if (Date == "24/01/2022")
-      console.log(Date);
+      navigation.navigate('NavigationActScreen')
   }
 
   return (
