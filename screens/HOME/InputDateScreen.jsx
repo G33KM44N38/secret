@@ -15,7 +15,7 @@ const InputDateScreen = () => {
       <Text style={styles.text}>J’espère que t’as toujours le post-it, sinon on va pas pouvoir continuer l’aventure ensemble, et je ne pourrais pas t’aider, malheureusement mon téléphone ne sera pas opérationnel, bon maintenant que tout est dit, veux-tu bien entré la date écrit sur le papier:</Text>
 
       {/* input */}
-      <TextInput keyboardType="numeric" style={styles.input} onChangeText={inputDate => setDate(inputDate)}/>
+      <TextInput keyboardType="numeric" placeholder='XX/XX/XXXX' style={styles.input} onChangeText={inputDate => setDate(inputDate)}/>
 
       {/* Button  */}
       <Pressable style={styles.button} onPress={() => validateDate()}>
