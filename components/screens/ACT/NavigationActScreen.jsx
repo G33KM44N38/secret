@@ -2,11 +2,10 @@ import { SafeAreaView, Text, Pressable, StyleSheet } from 'react-native'
 import React, {useState, useEffect} from 'react'
 
 //navigatoin API
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //Screens
-import Act1Screen from './Act1/Screens/Act1Screen';
+import Act1ScreenListOfPossibility from './Act1/Screens/Act1ScreenListOfPossibility';
 import Act2Screen from './Act2/Act2Screen';
 import Act3Screen from './Act3/Act3Screen';
 import FinScreen from './Fin/FinScreen';
@@ -72,11 +71,10 @@ const NavigationScreen = ({navigation}) => {
 
 const NavigationActScreen = () => {
   return(
-    <NavigationContainer independent={true}>
-      <Stack.Navigator>
-        <Stack.Screen name="NavigationActScreen" component={NavigationScreen}/>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="NavigationScreen" component={NavigationScreen}/>
         {/* ACT 1 */}
-        <Stack.Screen name="Act1Screen" component={Act1Screen}/>
+        <Stack.Screen name="Act1Screen" component={Act1ScreenListOfPossibility}/>
         {/* ACT2 */}
         <Stack.Screen name="Act2Screen" component={Act2Screen}/>
         {/* ACT3 */}
@@ -84,7 +82,6 @@ const NavigationActScreen = () => {
         {/* FinScreen */}
         <Stack.Screen name="FinScreen" component={FinScreen}/>
       </Stack.Navigator>
-    </NavigationContainer>
   )
 }
 
