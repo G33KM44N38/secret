@@ -1,5 +1,5 @@
 //storage API
-import { makeAct2Done, readAct2Done } from '../../../functions/storage/navigationScreenData';
+import { makeAct2Done, readAct2Done } from '../../../../functions/storage/navigationScreenData';
 
 export const changeAct2Status = (setAct2Status) => {
     makeAct2Done()

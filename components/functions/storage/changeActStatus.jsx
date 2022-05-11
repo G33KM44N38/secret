@@ -1,6 +1,6 @@
 //functions
 import { changeAct1Status } from "../../screens/ACT/Act1/functions/MakeAct1Done"
-import { changeAct2Status } from "../../screens/ACT/Act2/MakeAct2Done"
+import { changeAct2Status } from "../../screens/ACT/Act2/functions/MakeAct2Done"
 import { changeAct3Status } from "../../screens/ACT/Act3/MakeAct3Done"
 import { makeAct1NotDone, readAct1Done, makeAct2NotDone, readAct2Done, makeAct3NotDone, readAct3Done } from "./navigationScreenData"
 
