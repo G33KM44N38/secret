@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //Screens
 import Act1ScreenListOfPossibility from './Act1/Screens/Act1ScreenListOfPossibility';
 import Act2Screen from './Act2/screens/Act2Screen';
-import Act3Screen from './Act3/Act3Screen';
+import Act3Screen from './Act3/screens/Act3Screen';
 import FinScreen from './Fin/FinScreen';
 
 

@@ -1,7 +1,7 @@
 //functions
 import { changeAct1Status } from "../../screens/ACT/Act1/functions/MakeAct1Done"
 import { changeAct2Status } from "../../screens/ACT/Act2/functions/MakeAct2Done"
-import { changeAct3Status } from "../../screens/ACT/Act3/MakeAct3Done"
+import { changeAct3Status } from "../../screens/ACT/Act3/functions/MakeAct3Done"
 import { makeAct1NotDone, readAct1Done, makeAct2NotDone, readAct2Done, makeAct3NotDone, readAct3Done } from "./navigationScreenData"
 
 export const makeAllActTrue = (setAct1Status, setAct2Status, setAct3Status) => {
