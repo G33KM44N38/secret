@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "black",
     borderBottomWidth: 2,
     width: 100,
+    textAlign: "center"
   }
 })
 export default InputDateScreen
