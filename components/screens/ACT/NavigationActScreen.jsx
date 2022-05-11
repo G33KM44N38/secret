@@ -28,14 +28,14 @@ const NavigationScreen = ({navigation}) => {
   const [Act3Status, setAct3Status] = useState(false)
   
   // TEST
-  const makeAllTrue = () => {
+  const makeAllActTrue = () => {
     changeAct1Status(setAct1Status)
     changeAct2Status(setAct2Status)
     changeAct3Status(setAct3Status)
     
   }
 
-  const makeAllFasle = () => {
+  const MakeAllActNotDone = () => {
     makeAct1NotDone().then(
       readAct1Done()
       .then(function(res) {
@@ -69,10 +69,10 @@ const NavigationScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-      <Pressable style={styles.button} onPress={() => makeAllTrue()}>
+      <Pressable style={styles.button} onPress={() => makeAllActTrue()}>
         <Text style={styles.text}>TRUE</Text>
       </Pressable>
-      <Pressable style={styles.button} onPress={() => makeAllFasle()}>
+      <Pressable style={styles.button} onPress={() => MakeAllActNotDone()}>
         <Text style={styles.text}>FALSE</Text>
       </Pressable>
       <Pressable style={styles.button} onPress={() => navigation.navigate('Act1Screen')}>
