@@ -41,7 +41,7 @@ const Act2Screen = ({navigation}) => {
           <Text style={{fontSize: 30, textAlign: 'center'}}>
           Tu te rappelles de notre activité ?
           </Text>
-          <TextInput style={{borderBottomColor: "black", borderBottomWidth: 2, width: "30%", margin: 20, fontSize: 20}}
+          <TextInput style={{borderBottomColor: "black", borderBottomWidth: 2, width: "30%", margin: 20, fontSize: 20, textAlign: "center"}}
           placeholder="en 3 lettre"
           onChangeText={input => setinputAct2(input.toLowerCase())}
           />
