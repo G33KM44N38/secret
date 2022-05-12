@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 
 //navigatoin API
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import { useFocusEffect } from "@react-navigation/native"
 //Screens
 import Act1ScreenListOfPossibility from './Act1/Screens/Act1ScreenListOfPossibility';
 import Act2Screen from './Act2/screens/Act2Screen';
@@ -23,18 +23,19 @@ const NavigationScreen = ({navigation}) => {
   const [Act1Status, setAct1Status] = useState(false)
   const [Act2Status, setAct2Status] = useState(false)
   const [Act3Status, setAct3Status] = useState(false)
-  
-  useEffect(() => {
-    readAct1Done()
-    .then(function(res) { setAct1Status(res.act1Done) })
 
-    readAct2Done()
-    .then(function(res) { setAct2Status(res.act2Done) })
-
-    readAct3Done()
-    .then(function(res) { setAct3Status(res.act3Done) })
-  }, [])
+  useFocusEffect(
+    React.useCallback(() => {
+      readAct1Done()
+      .then(function(res) { setAct1Status(res.act1Done) })
   
+      readAct2Done()
+      .then(function(res) { setAct2Status(res.act2Done) })
+  
+      readAct3Done()
+      .then(function(res) { setAct3Status(res.act3Done) })
+    }, [])
+  ); 
 
   return (
     <SafeAreaView style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
