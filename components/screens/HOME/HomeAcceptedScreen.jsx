@@ -8,9 +8,6 @@ import { makeAct1NotDone, makeAct2NotDone, makeAct3NotDone } from '../../functio
 const HomeAcceptedScreen = ({ navigation }) => {
 
   const validate = () => {
-    makeAct1NotDone()
-    makeAct2NotDone()
-    makeAct3NotDone()
     navigation.navigate('InputDateScreen')
   }
   return (
