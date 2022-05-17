@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, Pressable, TextInput, Linking} from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Pressable, TextInput, Linking, Modal} from 'react-native'
 import React , {useState} from 'react'
 
 //swipe API
@@ -10,21 +10,26 @@ import { makeAct2Done } from '../../../../functions/storage/navigationScreenData
 const Act2Screen = ({navigation}) => {
 
   const [inputAct2, setinputAct2] = useState("")
+  const [ShowModalAct3, setShowModalAct3] = useState(false)
 
   const validateAnswerAct2 = () => {
 
-    if(inputAct2.includes('spa'))
+    if(inputAct2 == 'spa')
     {
       makeAct2Done()
-      .then(navigation.goBack())
-      .then(Linking.openURL("https://www.google.com/maps/place/Château+Hôtel+de+la+Commanderie/@45.1477778,5.7467002,17z/data=!3m1!4b1!4m8!3m7!1s0x478a8ad652bd5455:0xf2ab086d1844f8b8!5m2!4m1!1i2!8m2!3d45.1477778!4d5.7488889"))
+      .then(setShowModalAct3(!ShowModalAct3))
     } else {
       alert("ce n'est pas la bonne réponse")
     }
   }
 
+  const goToSpa = () => {
+    navigation.navigate('NavigationScreen')
+    Linking.openURL("https://www.google.com/maps/place/Château+Hôtel+de+la+Commanderie/@45.1477778,5.7467002,17z/data=!3m1!4b1!4m8!3m7!1s0x478a8ad652bd5455:0xf2ab086d1844f8b8!5m2!4m1!1i2!8m2!3d45.1477778!4d5.7488889")
+  }
+
   return (
-      <Swiper loop={false} horizontal={false}>
+      <Swiper loop={false}>
 
       {/* =============================== VIEW 1 ===============================*/}
         <SafeAreaView style={styles.centeredView}>
@@ -51,6 +56,28 @@ const Act2Screen = ({navigation}) => {
             <Text style={{color: "white", fontSize: 40}}>VALIDER</Text>
           </Pressable>
         </SafeAreaView>
+
+        {/* ============================ MODAL ============================ */}
+        <Modal
+        animationType="slide"
+        transparent={true}
+        visible={ShowModalAct3}>
+            <View style={styles.modalView}>
+                <View style={styles.modalContent}>
+                    <Pressable style={styles.closeButton} onPress={() => setShowModalAct3(!ShowModalAct3)}>
+                        <Text style={{fontWeight: "bold", fontSize: 30}}>X</Text>
+                    </Pressable>
+                    <Text style={styles.text}>Je savais que tu avais une bonne mémoire</Text>
+                    <Text style={styles.text}>Nous avons RDV à 13h15, Au Chateau de la Commanderie</Text>
+                    <Text style={styles.text}>Je te recupère à 12h30</Text>
+                    <Pressable style={styles.modalButton} onPress={() => goToSpa()}>
+                        <Text style={styles.modalButtonText}>C'est parti</Text>
+                    </Pressable>
+
+                </View>
+            </View>
+
+        </Modal>
       </Swiper>
   )
 }
@@ -60,7 +87,43 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
-  }
+  },
+  text: {
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  // ============ MODAL ============
+  modalView: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(52, 52, 52, 0.8)",
+},
+modalContent: {
+    alignItems: "center",
+    padding: 20,
+    width: "80%",
+    justifyContent: "center",
+    backgroundColor: "white",
+    borderRadius: 10
+},
+modalButton: {
+    backgroundColor: "black",
+    borderRadius: 10,
+    marginTop: 10,
+    padding: 10,
+},
+modalButtonText: {
+    fontSize: 30,
+    color: "white"
+},
+// CLOSE BUTTON
+closeButton: {
+    position: 'absolute',
+    top: 0,
+    right: 10,
+}
 })
 
 export default Act2Screen
