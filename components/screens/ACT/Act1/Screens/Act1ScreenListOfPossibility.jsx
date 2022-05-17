@@ -37,10 +37,14 @@ const Act1ScreenListOfPossibility = ({navigation}) => {
         visible={ShowModal}>
             <View style={styles.modalView}>
                 <View style={styles.modalContent}>
+                    <Pressable style={styles.closeButton} onPress={() => setShowModal(!ShowModal)}>
+                        <Text style={{fontWeight: "bold", fontSize: 30}}>X</Text>
+                    </Pressable>
                     <Text style={styles.text}>Bon et bien je vois que t’es bien réveillé, bon et bien je t’attends pour déjeuner a Pain & Cie</Text>
                     <Pressable style={styles.modalButton} onPress={() => goToPainCie()}>
                         <Text style={styles.modalButtonText}>C'est parti</Text>
                     </Pressable>
+
                 </View>
             </View>
 
@@ -84,7 +88,7 @@ const styles = StyleSheet.create({
     },
     modalContent: {
         alignItems: "center",
-        padding: 15,
+        padding: 20,
         width: "80%",
         justifyContent: "center",
         backgroundColor: "white",
@@ -98,6 +102,12 @@ const styles = StyleSheet.create({
     modalButtonText: {
         fontSize: 30,
         color: "white"
+    },
+    // CLOSE BUTTON
+    closeButton: {
+        position: 'absolute',
+        top: 0,
+        right: 10,
     }
 
 })
