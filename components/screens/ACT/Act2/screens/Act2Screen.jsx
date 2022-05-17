@@ -12,7 +12,8 @@ const Act2Screen = ({navigation}) => {
   const [inputAct2, setinputAct2] = useState("")
 
   const validateAnswerAct2 = () => {
-    if( inputAct2 == "spa")
+
+    if(inputAct2.includes('spa'))
     {
       makeAct2Done()
       .then(navigation.goBack())
