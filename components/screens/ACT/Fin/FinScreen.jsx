@@ -8,7 +8,7 @@ const FinScreen = () => {
   const [Word, setWord] = useState("")
 
   const validateEndInput = () => {
-    if (Word == "eternel")
+    if (Word == "eternel" || Word == "éternel")
       Linking.openURL('https://open.spotify.com/track/108TCF0NVAH4MDYwub3pph?si=I5__ynGLQKy3pYpYnsFqhQ')
     else
       alert("Ce n'est pas le bon mot")
