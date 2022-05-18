@@ -10,7 +10,10 @@ const InputDateScreen = ({navigation}) => {
 
   const validateDate = () => {
     if (Date == "24/01/2022")
+    {
       ChangeIntroStatus(true)
+      navigation.navigate('NavigationActScreen')
+    }
     else
       alert("Ce n'est pas la bonne date")
   }

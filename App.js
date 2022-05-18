@@ -24,21 +24,23 @@ export default function App() {
     ReadIntroStatus().then((res) => {
       setIntroDone(res)
     })
-  
-    }, [IntroDone])
-  
+    }, [IntroDone]
+  )
 
   return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           {IntroDone ?
+          <>
             <Stack.Screen name='NavigationActScreen' component={NavigationActScreen}/>
+          </>
           :
           <>
             <Stack.Screen name='homeScreen' component={HomeScreen}/>
             <Stack.Screen name='homeAcceptedScreen' component={HomeAcceptedScreen}/>
             <Stack.Screen name='HomeDeniedScreen' component={HomeDeniedScreen}/>
             <Stack.Screen name='InputDateScreen' component={InputDateScreen}/>
+            <Stack.Screen name='NavigationActScreen' component={NavigationActScreen}/>
           </>
           }
         </Stack.Navigator>
