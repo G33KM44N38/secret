@@ -1,5 +1,5 @@
-import { View, Text, Pressable, SafeAreaView, StyleSheet} from 'react-native'
-import React from 'react'
+import { View, Text, Pressable, SafeAreaView, StyleSheet, Modal} from 'react-native'
+import React, {useState} from 'react'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Swiper from 'react-native-swiper'
@@ -16,6 +16,7 @@ const Act3StoryScreen = ({navigation}) => {
       navigation.navigate('NavigationScreen')
     )
   }
+
   return (
     <Swiper horizontal={false} loop={false}>
       {/* ======================= SCREEN 1 =======================*/}
@@ -24,6 +25,7 @@ const Act3StoryScreen = ({navigation}) => {
           Tu te rappelles de cette soirée, ou l’on vivait encore ensemble, posé dans le lit avec une envie de restaurant
         </Text>
       </SafeAreaView>
+
       {/* ======================= SCREEN 2 =======================*/}
       <SafeAreaView style={styles.centeredView}>
         <Text style={styles.text}>
@@ -51,21 +53,40 @@ const Act3StoryScreen = ({navigation}) => {
 }
 
 const Act3Begin = ({navigation}) => {
+
+  const [ShowModal, setShowModal] = useState(false)
+
   return(
     <SafeAreaView style={styles.centeredView}>
-      <Text>
-      Bon je pense que tu t’attendais à avoir le petit message d’après activité, est-ce que ce spa et ce massage t’ont plu, es-tu bien détendu ? Et surtout prête pour la suite ?
-      </Text>
+
+      <Text style={styles.text}>Est-ce que ce spa et ce massage t’ont plu, es-tu bien détendu ?</Text>
+      <Text style={styles.text}>Et surtout es-tu prête pour la suite ?</Text>
       {/* ================== BUTTONS ==================*/}
       <Pressable style={styles.button} onPress={() => navigation.navigate('Act3StoryScreen')}>
         <Text style={styles.buttonText}>OUI </Text>
       </Pressable>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => setShowModal(!ShowModal)}>
         <Text style={styles.buttonText}>NON</Text>
       </Pressable>
+
+        {/* ============================ MODAL ============================ */}
+        <Modal
+        animationType="slide"
+        transparent={true}
+        visible={ShowModal}>
+            <View style={styles.modalView}>
+                <View style={styles.modalContentWrongChoice}>
+                    <Pressable style={styles.closeButton} onPress={() => setShowModal(!ShowModal)}>
+                        <Text style={{fontWeight: "bold", fontSize: 30}}>X</Text>
+                    </Pressable>
+                    <Text style={styles.text}>Ouais c'est vrai qu'elles massaient ultra mal, et que le thé était pas ouf du tout beurk</Text>
+                </View>
+            </View>
+
+        </Modal>
     </SafeAreaView>
-  )
-}
+
+)}
 
 const Act3Screen = () => {
   return (
@@ -85,10 +106,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 40,
     width: "80%",
-    textAlign: "center"
+    textAlign: "center",
   },
   button: {
     backgroundColor: 'black',
+    width: "50%",
     padding: 10,
     margin: 10,
     borderRadius: 10,
@@ -97,6 +119,44 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 30,
     textAlign: "center"
+  },
+    // ============ MODAL ============
+    modalView: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "rgba(52, 52, 52, 0.8)",
+  },
+  modalContentWrongChoice: {
+      alignItems: "center",
+      padding: 20,
+      width: "80%",
+      justifyContent: "center",
+      backgroundColor: "white",
+      borderRadius: 10
+  },
+  modalContentGoodChoice: {
+      alignItems: "center",
+      padding: 20,
+      width: "80%",
+      justifyContent: "center",
+      backgroundColor: "green",
+      borderRadius: 10
+  },
+  modalButton: {
+      backgroundColor: "black",
+      borderRadius: 10,
+      padding: 10,
+  },
+  modalButtonText: {
+      fontSize: 30,
+      color: "white"
+  },
+  // CLOSE BUTTON
+  closeButton: {
+    position: 'absolute',
+    top: 0,
+    right: 10,
   }
 })
 
