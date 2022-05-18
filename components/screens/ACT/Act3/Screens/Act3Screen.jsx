@@ -18,7 +18,7 @@ const Act3StoryScreen = ({navigation}) => {
   }
 
   return (
-    <Swiper horizontal={false} loop={false}>
+    <Swiper loop={false}>
       {/* ======================= SCREEN 1 =======================*/}
       <SafeAreaView style={styles.centeredView}>
         <Text style={styles.text}>
