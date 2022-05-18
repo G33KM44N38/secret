@@ -1,13 +1,18 @@
 import { SafeAreaView, Text, Pressable, StyleSheet, TextInput } from 'react-native'
 import React, {useState} from 'react'
 
+//functions
+import { MakeIntroStatusDone } from '../../functions/storage/ChangeInitialScreen'
+
 const InputDateScreen = ({navigation}) => {
   
   const [Date, setDate] = useState()
 
   const validateDate = () => {
     if (Date == "24/01/2022")
-      navigation.navigate('NavigationActScreen')
+    {
+      MakeIntroStatusDone(true)
+    }
   }
 
   return (

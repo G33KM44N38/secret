@@ -1,12 +1,7 @@
-import { View, Text, Pressable, SafeAreaView } from 'react-native'
+import { Text, Pressable, SafeAreaView } from 'react-native'
 import React from 'react'
 
-//functions
-import { MakeAllActNotDone } from '../../functions/storage/changeActStatus'
-import { makeAct1NotDone, makeAct2NotDone, makeAct3NotDone } from '../../functions/storage/navigationScreenData'
-
 const HomeAcceptedScreen = ({ navigation }) => {
-
   const validate = () => {
     navigation.navigate('InputDateScreen')
   }

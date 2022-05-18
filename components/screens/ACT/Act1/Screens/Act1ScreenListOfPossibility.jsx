@@ -10,11 +10,11 @@ const Act1ScreenListOfPossibility = ({navigation}) => {
 
     const goToPainCie = () => {
         makeAct1Done()
+        .then(setShowModal(!ShowModal))
+        .then(navigation.navigate('NavigationScreen'))
         .then(
             Linking.openURL('https://www.google.com/maps/place/Pain%26Cie/@45.1728246,5.7029288,14z/data=!4m9!1m2!2m1!1spain+et+cie!3m5!1s0x478af48a6f4f1f87:0xde1448c3f6e45a0f!8m2!3d45.1924749!4d5.7299686!15sCgtwYWluIGV0IGNpZVoNIgtwYWluIGV0IGNpZZIBEWJydW5jaF9yZXN0YXVyYW50mgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVJuTkhKSFEyUlJFQUU')
         )
-        .then(setShowModal(!ShowModal))
-        .then(navigation.navigate('NavigationScreen'))
 
     }
   return (
