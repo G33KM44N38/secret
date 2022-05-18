@@ -24,8 +24,8 @@ const Act2Screen = ({navigation}) => {
   }
 
   const goToSpa = () => {
-    navigation.navigate('NavigationScreen')
     Linking.openURL("https://www.google.com/maps/place/Château+Hôtel+de+la+Commanderie/@45.1477778,5.7467002,17z/data=!3m1!4b1!4m8!3m7!1s0x478a8ad652bd5455:0xf2ab086d1844f8b8!5m2!4m1!1i2!8m2!3d45.1477778!4d5.7488889")
+    navigation.navigate('NavigationScreen')
   }
 
   return (

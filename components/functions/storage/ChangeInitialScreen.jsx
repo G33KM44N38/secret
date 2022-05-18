@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const MakeIntroStatusDone = async (value) => {
+export const ChangeIntroStatus = async (value) => {
     try {
       const jsonValue = JSON.stringify(value)
       await AsyncStorage.setItem('IntroStatus', jsonValue)
@@ -8,7 +8,6 @@ export const MakeIntroStatusDone = async (value) => {
       // saving error
     }
 }
-
 
 export const ReadIntroStatus = async () => {
     try {

@@ -15,7 +15,7 @@ const FinScreen = () => {
   }
 
   return (
-    <Swiper horizontal={false} loop={false}>
+    <Swiper loop={false}>
       {/* ================= SCREEN 1  =================*/}
       <SafeAreaView style={styles.centeredView}>
         <Text style={styles.text}>Bon j’espère que cette journée t’as plu, voila pourquoi le post-it était ici tout ce temps, ce moment gravé dans ma mémoire, tu étais sous la douche, en train de chanter comme d’habitude, et l’idée m’est venu.</Text>

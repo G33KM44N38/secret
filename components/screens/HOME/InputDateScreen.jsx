@@ -2,17 +2,17 @@ import { SafeAreaView, Text, Pressable, StyleSheet, TextInput } from 'react-nati
 import React, {useState} from 'react'
 
 //functions
-import { MakeIntroStatusDone } from '../../functions/storage/ChangeInitialScreen'
+import { ChangeIntroStatus } from '../../functions/storage/ChangeInitialScreen'
 
 const InputDateScreen = ({navigation}) => {
   
-  const [Date, setDate] = useState()
+  const [Date, setDate] = useState(null)
 
   const validateDate = () => {
     if (Date == "24/01/2022")
-    {
-      MakeIntroStatusDone(true)
-    }
+      ChangeIntroStatus(true)
+    else
+      alert("Ce n'est pas la bonne date")
   }
 
   return (

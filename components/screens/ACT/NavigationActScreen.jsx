@@ -17,12 +17,18 @@ import { readAct1Done, readAct2Done, readAct3Done, makeAct1Done, makeAct2Done, m
 const Stack = createNativeStackNavigator();
 
 //functions
-import { MakeAllActNotDone, makeAllActTrue } from '../../functions/storage/changeActStatus';
+import { MakeAllActNotDone } from '../../functions/storage/changeActStatus';
+import { ChangeIntroStatus } from '../../functions/storage/ChangeInitialScreen';
 
 const NavigationScreen = ({navigation}) => {
   const [Act1Status, setAct1Status] = useState(false)
   const [Act2Status, setAct2Status] = useState(false)
   const [Act3Status, setAct3Status] = useState(false)
+
+  const RestartAll = () => {
+    ChangeIntroStatus(false)
+    MakeAllActNotDone(setAct1Status, setAct2Status, setAct3Status)
+  }
 
   useFocusEffect(
     React.useCallback(() => {
@@ -39,11 +45,8 @@ const NavigationScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-      <Pressable style={styles.button} onPress={() => makeAllActTrue(setAct1Status, setAct2Status, setAct3Status)}>
-        <Text style={styles.text}>TRUE</Text>
-      </Pressable>
-      <Pressable style={styles.button} onPress={() => MakeAllActNotDone(setAct1Status, setAct2Status, setAct3Status)}>
-        <Text style={styles.text}>FALSE</Text>
+      <Pressable style={styles.button} onPress={() => RestartAll()}>
+        <Text style={styles.text}>Restart All</Text>
       </Pressable>
       <Pressable style={styles.button} onPress={() => navigation.navigate('Act1Screen')}>
         <Text style={styles.text}>Act 1</Text>
