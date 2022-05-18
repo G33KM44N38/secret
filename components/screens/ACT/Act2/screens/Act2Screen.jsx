@@ -7,6 +7,9 @@ import Swiper from 'react-native-swiper'
 //function
 import { makeAct2Done } from '../../../../functions/storage/navigationScreenData'
 
+//back button
+import BackButton from '../../../../button/BackButton'
+
 const Act2Screen = ({navigation}) => {
 
   const [inputAct2, setinputAct2] = useState("")
@@ -29,15 +32,18 @@ const Act2Screen = ({navigation}) => {
   }
 
   return (
+    <>
       <Swiper loop={false}>
 
       {/* =============================== VIEW 1 ===============================*/}
         <SafeAreaView style={styles.centeredView}>
+          <BackButton navigation={navigation}/>
           <Text style={{fontSize: 30, textAlign: 'center', width: "80%"}}>Bon un peu de temps est passé je pense que tu as été impatiente, ça doit te faire bizarre de ne pas avoir de mes news, en tout cas le moi de passé se le dit.</Text>
         </SafeAreaView>
 
       {/* =============================== VIEW 2 ===============================*/}
         <SafeAreaView style={styles.centeredView}>
+          <BackButton navigation={navigation}/>
           <Text style={{fontSize: 30, textAlign: 'center', width: "80%"}}>
             Pour la prochaine étape, je vais te demander de fouiller dans ta mémoire, tu te rappelle quand on était dans le sud, on a eu notre petit moment à nous ou nous sommes allez-nous relaxer, loin de la maison des secret
           </Text>
@@ -45,6 +51,7 @@ const Act2Screen = ({navigation}) => {
 
       {/* =============================== VIEW 3 ===============================*/}
         <SafeAreaView style={styles.centeredView}>
+          <BackButton navigation={navigation}/>
           <Text style={{fontSize: 30, textAlign: 'center'}}>
           Tu te rappelles de notre activité ?
           </Text>
@@ -56,7 +63,7 @@ const Act2Screen = ({navigation}) => {
             <Text style={{color: "white", fontSize: 40}}>VALIDER</Text>
           </Pressable>
         </SafeAreaView>
-
+      </Swiper>
         {/* ============================ MODAL ============================ */}
         <Modal
         animationType="slide"
@@ -77,7 +84,7 @@ const Act2Screen = ({navigation}) => {
             </View>
 
         </Modal>
-      </Swiper>
+    </>
   )
 }
 

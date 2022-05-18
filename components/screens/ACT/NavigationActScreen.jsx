@@ -45,9 +45,9 @@ const NavigationScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-      <Pressable style={styles.button} onPress={() => RestartAll()}>
+      {/* <Pressable style={styles.button} onPress={() => RestartAll()}>
         <Text style={styles.text}>Restart All</Text>
-      </Pressable>
+      </Pressable> */}
       <Pressable style={styles.button} onPress={() => navigation.navigate('Act1Screen')}>
         <Text style={styles.text}>Act 1</Text>
       </Pressable>

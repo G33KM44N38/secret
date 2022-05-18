@@ -7,6 +7,9 @@ import Swiper from 'react-native-swiper'
 //functions
 import { makeAct3Done } from '../../../../functions/storage/navigationScreenData'
 
+//back button
+import BackButton from '../../../../button/BackButton'
+
 const act3Stack = createNativeStackNavigator()
 
 const Act3StoryScreen = ({navigation}) => {
@@ -18,36 +21,42 @@ const Act3StoryScreen = ({navigation}) => {
   }
 
   return (
+    <>
     <Swiper loop={false}>
-      {/* ======================= SCREEN 1 =======================*/}
-      <SafeAreaView style={styles.centeredView}>
-        <Text style={styles.text}>
-          Tu te rappelles de cette soirée, ou l’on vivait encore ensemble, posé dans le lit avec une envie de restaurant
-        </Text>
-      </SafeAreaView>
+        {/* ======================= SCREEN 1 =======================*/}
+        <SafeAreaView style={styles.centeredView}>
+          <BackButton navigation={navigation}/>
+          <Text style={styles.text}>
+            Tu te rappelles de cette soirée, ou l’on vivait encore ensemble, posé dans le lit avec une envie de restaurant
+          </Text>
+        </SafeAreaView>
 
-      {/* ======================= SCREEN 2 =======================*/}
-      <SafeAreaView style={styles.centeredView}>
-        <Text style={styles.text}>
-          je pense que pour toi c’est devenu un incontournable de la vie grenobloise, on en rêvait même en étant en Espagne.
-        </Text>
-      </SafeAreaView>
-      {/* ======================= SCREEN 3 =======================*/}
-      <SafeAreaView style={styles.centeredView}>
-        <Text style={styles.text}>
-          Bon je pense que tu te rappelles du nom de restaurant, et bien je t’y attends pour 20h.
-        </Text>
-      </SafeAreaView>
-      {/* ======================= SCREEN 4 =======================*/}
-      <SafeAreaView style={styles.centeredView}>
-        <Text style={styles.text}>
-          À tout à l’heure
-        </Text>
-        <Pressable style={styles.button} onPress={() => validateAct3()}>
-          <Text style={styles.buttonText}>Bien sur si c'est toi qui paie</Text>
-        </Pressable>
-      </SafeAreaView>
-    </Swiper>
+        {/* ======================= SCREEN 2 =======================*/}
+        <SafeAreaView style={styles.centeredView}>
+          <BackButton navigation={navigation}/>
+          <Text style={styles.text}>
+            je pense que pour toi c’est devenu un incontournable de la vie grenobloise, on en rêvait même en étant en Espagne.
+          </Text>
+        </SafeAreaView>
+        {/* ======================= SCREEN 3 =======================*/}
+        <SafeAreaView style={styles.centeredView}>
+          <BackButton navigation={navigation}/>
+          <Text style={styles.text}>
+            Bon je pense que tu te rappelles du nom de restaurant, et bien je t’y attends pour 20h.
+          </Text>
+        </SafeAreaView>
+        {/* ======================= SCREEN 4 =======================*/}
+        <SafeAreaView style={styles.centeredView}>
+          <BackButton navigation={navigation}/>
+          <Text style={styles.text}>
+            À tout à l’heure
+          </Text>
+          <Pressable style={styles.button} onPress={() => validateAct3()}>
+            <Text style={styles.buttonText}>Bien sur si c'est toi qui paie</Text>
+          </Pressable>
+        </SafeAreaView>
+      </Swiper>
+    </>
 
   )
 }
@@ -58,7 +67,7 @@ const Act3Begin = ({navigation}) => {
 
   return(
     <SafeAreaView style={styles.centeredView}>
-
+    <BackButton navigation={navigation}/>
       <Text style={styles.text}>Est-ce que ce spa et ce massage t’ont plu, es-tu bien détendu ?</Text>
       <Text style={styles.text}>Et surtout es-tu prête pour la suite ?</Text>
       {/* ================== BUTTONS ==================*/}

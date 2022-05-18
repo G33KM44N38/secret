@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 
 //functions
 import { makeAct1Done } from '../../../../functions/storage/navigationScreenData'
+import BackButton from '../../../../button/BackButton'
 
 const Act1ScreenListOfPossibility = ({navigation}) => {
     
@@ -21,6 +22,8 @@ const Act1ScreenListOfPossibility = ({navigation}) => {
     }
   return (
     <View style={styles.centeredView}>
+        <BackButton navigation={navigation}/>
+        <BackButton navigation={navigation}/>
         <Text style={styles.text}>Parfait, t’as toujours à ce que je vois garde le précieusement, bon c’est le matin et qu’est-ce qu’on fait le matin ?</Text>
         <Pressable style={styles.button} onPress={() => setShowWrongAnswerModal1(!ShowWrongAnswerModal1)}>
             <Text style={styles.buttonText}>On se rendors dormir c’est vraiment trop bien</Text>

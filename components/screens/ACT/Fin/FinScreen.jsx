@@ -3,7 +3,9 @@ import React, {useState} from 'react'
 
 import Swiper from 'react-native-swiper'
 
-const FinScreen = () => {
+import BackButton from '../../../button/BackButton'
+
+const FinScreen = ({navigation}) => {
 
   const [Word, setWord] = useState("")
 
@@ -18,13 +20,16 @@ const FinScreen = () => {
     <Swiper loop={false}>
       {/* ================= SCREEN 1  =================*/}
       <SafeAreaView style={styles.centeredView}>
+      <BackButton navigation={navigation}/>
         <Text style={styles.text}>Bon j’espère que cette journée t’as plu, voila pourquoi le post-it était ici tout ce temps, ce moment gravé dans ma mémoire, tu étais sous la douche, en train de chanter comme d’habitude, et l’idée m’est venu.</Text>
       </SafeAreaView>
 
       {/* ================= SCREEN 2  =================*/}
       <SafeAreaView style={styles.centeredView}>
+      <BackButton navigation={navigation}/>
         <Text style={styles.text}>j’espère que tu l’as encore, je te laisse rentrer le mot a l’arrière et profiter, je t’aime ma petite Boudi❤️</Text>
-        <TextInput style={{borderBottomColor: "black", borderBottomWidth: 2, width: "30%", margin: 20, fontSize: 20, textAlign: "center"}}
+        <TextInput
+        style={{borderBottomColor: "black", borderBottomWidth: 2, width: "30%", margin: 20, fontSize: 20, textAlign: "center"}}
         onChangeText={input => setWord(input.toLowerCase())}/>
         <Pressable style={styles.button} onPress={() => validateEndInput()}>
           <Text style={styles.buttonText}>VALIDER</Text>
