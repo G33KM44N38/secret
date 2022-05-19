@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //Act 1
-export const makeAct1Done = async (value) => {
+export const makeAct1Done = async () => {
     try {
       const jsonValue = JSON.stringify({act1Done: true})
       await AsyncStorage.setItem('Act1Done', jsonValue)
@@ -10,7 +10,7 @@ export const makeAct1Done = async (value) => {
     }
 }
 
-export const makeAct1NotDone = async (value) => {
+export const makeAct1NotDone = async () => {
     try {
       const jsonValue = JSON.stringify({act1Done: false})
       await AsyncStorage.setItem('Act1Done', jsonValue)
@@ -29,7 +29,7 @@ export const readAct1Done = async () => {
 }
 
 //Act 2
-export const makeAct2Done = async (value) => {
+export const makeAct2Done = async () => {
     try {
       const jsonValue = JSON.stringify({act2Done: true})
       await AsyncStorage.setItem('Act2Done', jsonValue)
@@ -38,7 +38,7 @@ export const makeAct2Done = async (value) => {
     }
 }
 
-export const makeAct2NotDone = async (value) => {
+export const makeAct2NotDone = async () => {
     try {
       const jsonValue = JSON.stringify({act2Done: false})
       await AsyncStorage.setItem('Act2Done', jsonValue)
@@ -57,7 +57,7 @@ export const readAct2Done = async () => {
 }
 
 //Act 3
-export const makeAct3Done = async (value) => {
+export const makeAct3Done = async () => {
     try {
       const jsonValue = JSON.stringify({act3Done: true})
       await AsyncStorage.setItem('Act3Done', jsonValue)
@@ -66,7 +66,7 @@ export const makeAct3Done = async (value) => {
     }
 }
 
-export const makeAct3NotDone = async (value) => {
+export const makeAct3NotDone = async () => {
     try {
       const jsonValue = JSON.stringify({act3Done: false})
       await AsyncStorage.setItem('Act3Done', jsonValue)
