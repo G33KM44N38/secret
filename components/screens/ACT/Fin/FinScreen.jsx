@@ -27,10 +27,12 @@ const FinScreen = ({navigation}) => {
       {/* ================= SCREEN 2  =================*/}
       <SafeAreaView style={styles.centeredView}>
       <BackButton navigation={navigation}/>
-        <Text style={styles.text}>j’espère que tu l’as encore, je te laisse rentrer le mot a l’arrière et profiter, je t’aime ma petite Boudi❤️</Text>
+        <Text style={styles.text}>j’espère que tu l’as encore, je te laisse rentrer le mot a l’arrière et profiter</Text>
+        <Text style={styles.text}>Joyeux 21 année😘</Text>
         <TextInput
         style={{borderBottomColor: "black", borderBottomWidth: 2, width: "30%", margin: 20, fontSize: 20, textAlign: "center"}}
-        onChangeText={input => setWord(input.toLowerCase())}/>
+        onChangeText={input => setWord(input.toLowerCase())}
+        maxLength={7}/>
         <Pressable style={styles.button} onPress={() => validateEndInput()}>
           <Text style={styles.buttonText}>VALIDER</Text>
         </Pressable>

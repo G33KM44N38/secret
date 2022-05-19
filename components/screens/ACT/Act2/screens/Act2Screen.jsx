@@ -58,6 +58,7 @@ const Act2Screen = ({navigation}) => {
           <TextInput style={{borderBottomColor: "black", borderBottomWidth: 2, width: "30%", margin: 20, fontSize: 20, textAlign: "center"}}
           placeholder="en 3 lettre"
           onChangeText={input => setinputAct2(input.toLowerCase())}
+          maxLength={3}
           />
           <Pressable style={{backgroundColor: "black", padding: 10, borderRadius: 10}} onPress={() => validateAnswerAct2()}>
             <Text style={{color: "white", fontSize: 40}}>VALIDER</Text>
