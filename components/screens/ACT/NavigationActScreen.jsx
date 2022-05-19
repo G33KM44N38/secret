@@ -12,7 +12,7 @@ import FinScreen from './Fin/FinScreen';
 
 
 //storage API
-import { readAct1Done, readAct2Done, readAct3Done, makeAct1Done, makeAct2Done, makeAct3Done, makeAct1NotDone, makeAct2NotDone, makeAct3NotDone } from '../../functions/storage/navigationScreenData';
+import { readAct1Done, readAct2Done, readAct3Done  } from '../../functions/storage/navigationScreenData';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +28,32 @@ const NavigationScreen = ({navigation}) => {
   const RestartAll = () => {
     ChangeIntroStatus(false)
     MakeAllActNotDone(setAct1Status, setAct2Status, setAct3Status)
+  }
+
+  var ActualDate = new Date('May 20, 2022 11:30:00');
+  var dateLimitForDisplayAct2 = new Date('May 20, 2022 11:30:00');
+  var dateLimitForDisplayAct3 = new Date('May 20, 2022 18:00:00');
+  var dateLimitForDisplayFin = new Date('May 20, 2022 22:00:00');
+
+  var displayAct2 = () => {
+    if ( Act1Status == true && ActualDate > dateLimitForDisplayAct2) 
+      return true
+    else
+      return false
+  }
+
+  var displayAct3 = () => {
+    if ( Act2Status == true && ActualDate > dateLimitForDisplayAct3) 
+      return true
+    else
+      return false
+  }
+
+  var displayActFin = () => {
+    if ( Act3Status == true && ActualDate > dateLimitForDisplayFin) 
+      return true
+    else
+      return false
   }
 
   useFocusEffect(
@@ -48,26 +74,45 @@ const NavigationScreen = ({navigation}) => {
       <Pressable style={styles.button} onPress={() => RestartAll()}>
         <Text style={styles.text}>Restart All</Text>
       </Pressable>
+      <Pressable style={styles.button} onPress={() => compaerTwoDate()}>
+        <Text style={styles.text}>date</Text>
+      </Pressable>
+
+      {/* ============================= ACT 1 BUTTON ============================= */}
       <Pressable style={styles.button} onPress={() => navigation.navigate('Act1Screen')}>
         <Text style={styles.text}>Act 1</Text>
       </Pressable>
-      {Act1Status == true ? 
+
+      {/* ============================= ACT 2 BUTTON ============================= */}
+      {displayAct2() ? 
         <Pressable style={styles.button} onPress={() => navigation.navigate('Act2Screen')}>
           <Text style={styles.text}>Act 2</Text>
         </Pressable>
-      :null}
+      :Act1Status == true ?
+      <Pressable style={styles.buttonDesactivate} >
+        <Text style={{color: "white"}}>L'act 2 se debloque a 11h30</Text>
+      </Pressable> : null}
 
-      {Act2Status == true ? 
+      {/* ============================= ACT 3 BUTTON ============================= */}
+      {displayAct3() ? 
         <Pressable style={styles.button} onPress={() => navigation.navigate('Act3Screen')}>
           <Text style={styles.text}>Act 3</Text>
         </Pressable>
-      :null}
+      :
+      Act2Status == true ? 
+      <Pressable style={styles.buttonDesactivate} >
+        <Text style={{color: "white"}}>L'act 3 se debloque a 18h00</Text>
+      </Pressable> : null}
 
-      {Act3Status == true ? 
+      {/* ============================= ACT FIN BUTTON ============================= */}
+      {displayActFin() ? 
         <Pressable style={styles.button} onPress={() => navigation.navigate('FinScreen')}>
           <Text style={styles.text}>Fin</Text>
         </Pressable>
-      :null}
+      :Act3Status == true ?
+        <Pressable style={styles.buttonDesactivate} >
+          <Text style={{color: "white"}}>Le dernier act se debloque a 22h</Text>
+        </Pressable> : null}
 
     </SafeAreaView>
   )
@@ -92,6 +137,14 @@ const NavigationActScreen = () => {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: "black",
+    width: "80%",
+    margin: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  buttonDesactivate: {
+    backgroundColor: "gray",
     width: "80%",
     margin: 15,
     borderRadius: 10,
