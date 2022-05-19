@@ -3,19 +3,18 @@ import React, {useState} from 'react'
 
 //functions
 import { ChangeIntroStatus } from '../../functions/storage/ChangeInitialScreen'
-
-//api date
-import { DatePicker } from 'react-native-woodpicker'
-import TextInputMask from 'react-native-masked-text'
+import { makeAct1NotDone, makeAct2NotDone, makeAct3NotDone } from '../../functions/storage/navigationScreenData'
 
 const InputDateScreen = ({navigation}) => {
   
   // ========================================= VALIDATION OF THE INPUT =========================================
   const validateDate = () => {
-    console.log(date);
     if (date == "24/01")
     {
       ChangeIntroStatus(true)
+      makeAct1NotDone()
+      makeAct2NotDone()
+      makeAct3NotDone()
       navigation.navigate('NavigationActScreen')
     }
     else
