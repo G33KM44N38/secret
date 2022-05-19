@@ -30,27 +30,27 @@ const NavigationScreen = ({navigation}) => {
     MakeAllActNotDone(setAct1Status, setAct2Status, setAct3Status)
   }
 
-  var ActualDate = new Date('May 20, 2022 11:30:00');
+  var ActualDate = new Date();
   var dateLimitForDisplayAct2 = new Date('May 20, 2022 11:30:00');
   var dateLimitForDisplayAct3 = new Date('May 20, 2022 18:00:00');
   var dateLimitForDisplayFin = new Date('May 20, 2022 22:00:00');
 
   var displayAct2 = () => {
-    if ( Act1Status == true && ActualDate > dateLimitForDisplayAct2) 
+    if ( Act1Status == true && ActualDate >= dateLimitForDisplayAct2) 
       return true
     else
       return false
   }
 
   var displayAct3 = () => {
-    if ( Act2Status == true && ActualDate > dateLimitForDisplayAct3) 
+    if ( Act2Status == true && ActualDate >= dateLimitForDisplayAct3) 
       return true
     else
       return false
   }
 
   var displayActFin = () => {
-    if ( Act3Status == true && ActualDate > dateLimitForDisplayFin) 
+    if ( Act3Status == true && ActualDate >= dateLimitForDisplayFin) 
       return true
     else
       return false
@@ -71,12 +71,9 @@ const NavigationScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-      <Pressable style={styles.button} onPress={() => RestartAll()}>
+      {/* <Pressable style={styles.button} onPress={() => RestartAll()}>
         <Text style={styles.text}>Restart All</Text>
-      </Pressable>
-      <Pressable style={styles.button} onPress={() => compaerTwoDate()}>
-        <Text style={styles.text}>date</Text>
-      </Pressable>
+      </Pressable> */}
 
       {/* ============================= ACT 1 BUTTON ============================= */}
       <Pressable style={styles.button} onPress={() => navigation.navigate('Act1Screen')}>

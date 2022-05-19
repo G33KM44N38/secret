@@ -1,21 +1,40 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
-import React from 'react'
+import React, {useState} from 'react'
 
 const HomeScreen = ({navigation}) => {
+
+  var ActualDate = new Date();
+  var dateLimitForBegin = new Date('May 20, 2022 9:00:00');
+
+  const CanTheGameBeing = () => {
+    if(ActualDate >= dateLimitForBegin)  
+      return true
+    else
+      return false
+  }
   return (
-    <View style={styles.container}>
+    <>
+      {
+        CanTheGameBeing() ?
 
-      <Text style={styles.text}>Bonjour Boudi on va jouer à un petit jeu, t’es partante?</Text>
+          <View style={styles.container}>
+            <Text style={styles.text}>Bonjour Boudi on va jouer à un petit jeu, t’es partante?</Text>
 
-      <Pressable style={styles.button} onPress={() => navigation.navigate('homeAcceptedScreen')}>
-          <Text style={styles.buttonText}>OUI</Text>
-        </Pressable>
+            <Pressable style={styles.button} onPress={() => navigation.navigate('homeAcceptedScreen')}>
+                <Text style={styles.buttonText}>OUI</Text>
+              </Pressable>
 
-      <Pressable style={styles.button} onPress={() => navigation.navigate('HomeDeniedScreen')}>
-          <Text style={styles.buttonText}>NON</Text>
-      </Pressable>
+            <Pressable style={styles.button} onPress={() => navigation.navigate('HomeDeniedScreen')}>
+                <Text style={styles.buttonText}>NON</Text>
+            </Pressable>
+          </View>
+        : 
+        <View style={styles.container}>
+          <Text>L'application se debloque demain a 9h</Text>
+        </View>
+      }
+    </>
 
-    </View>
   )
 }
 
