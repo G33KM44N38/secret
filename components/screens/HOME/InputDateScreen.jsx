@@ -1,21 +1,30 @@
-import { SafeAreaView, Text, Pressable, StyleSheet, TextInput } from 'react-native'
+import { SafeAreaView, Text, Pressable, StyleSheet, TextInput, Button} from 'react-native'
 import React, {useState} from 'react'
 
 //functions
 import { ChangeIntroStatus } from '../../functions/storage/ChangeInitialScreen'
 
+//api date
+import { DatePicker } from 'react-native-woodpicker'
+
 const InputDateScreen = ({navigation}) => {
   
-  const [Date, setDate] = useState(null)
+  const [pickedDate, setPickedDate] = useState(new Date());
 
+  const handleText = () : String => pickedDate
+      ? pickedDate.toDateString()
+      : "No value Selected";
+
+  // ========================================= VALIDATION OF THE INPUT =========================================
   const validateDate = () => {
-    if (Date == "24/01/2022")
-    {
-      ChangeIntroStatus(true)
-      navigation.navigate('NavigationActScreen')
-    }
-    else
-      alert("Ce n'est pas la bonne date")
+    console.log(pickedDate);
+    // if (pickedDate.includes(""))
+    // {
+    //   ChangeIntroStatus(true)
+    //   // navigation.navigate('NavigationActScreen')
+    // }
+    // else
+    //   alert("Ce n'est pas la bonne date")
   }
 
   return (
@@ -23,7 +32,16 @@ const InputDateScreen = ({navigation}) => {
       <Text style={styles.text}>J’espère que t’as toujours le post-it, sinon on va pas pouvoir continuer l’aventure ensemble, et je ne pourrais pas t’aider, malheureusement mon téléphone ne sera pas opérationnel, bon maintenant que tout est dit, veux-tu bien entré la date écrit sur le papier:</Text>
 
       {/* input */}
-      <TextInput keyboardType="numeric" placeholder='XX/XX/XXXX' style={styles.input} onChangeText={inputDate => setDate(inputDate)}/>
+      {/* <TextInput keyboardType="numeric" placeholder='XX/XX/XXXX' style={styles.input} onChangeText={inputDate => setDate(inputDate)}/> */}
+      <DatePicker
+        value={pickedDate}
+        onDateChange={setPickedDate}
+        text={handleText()}
+        isNullable={false}
+        textColor="black"
+        androidMode="calendar"
+        androidDisplay="calendar"
+      />
 
       {/* Button  */}
       <Pressable style={styles.button} onPress={() => validateDate()}>
