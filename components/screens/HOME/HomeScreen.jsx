@@ -1,21 +1,28 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
-import React, {useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
+import { useFocusEffect  } from "@react-navigation/native"
 
 const HomeScreen = ({navigation}) => {
 
-  var ActualDate = new Date();
-  var dateLimitForBegin = new Date('May 20, 2022 9:00:00');
+  const [BeginGame, setBeginGame] = useState(false)
 
   const CanTheGameBeing = () => {
-    if(ActualDate >= dateLimitForBegin)  
-      return true
-    else
-      return false
+    if(new Date() >= new Date('May 20, 2022 9:00:00'))  
+      setBeginGame(true)
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      CanTheGameBeing()
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+  
+
   return (
     <>
       {
-        CanTheGameBeing() ?
+        BeginGame ?
 
           <View style={styles.container}>
             <Text style={styles.text}>Bonjour Boudi on va jouer à un petit jeu, t’es partante?</Text>
@@ -29,9 +36,9 @@ const HomeScreen = ({navigation}) => {
             </Pressable>
           </View>
         : 
-        <View style={styles.container}>
-          <Text>L'application se debloque demain a 9h</Text>
-        </View>
+        <Pressable style={styles.container} onPress={() => CanTheGameBeing()}>
+          <Text>L'application se debloquera a 9h le 20 mai 2020</Text>
+        </Pressable>
       }
     </>
 
