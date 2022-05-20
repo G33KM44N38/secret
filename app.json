@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "sdtVersion": "34.0.0",
+    "name": "JOYEUX ANNIVESRAIRE",
+    "slug": "secret",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "android": {
+      "package": "com.g33km44n38.secret"
+    }
+  }
+}
