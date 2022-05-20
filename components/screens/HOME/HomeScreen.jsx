@@ -1,6 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
-import React, {useEffect, useState, useCallback} from 'react'
-import { useFocusEffect  } from "@react-navigation/native"
+import React, {useEffect, useState} from 'react'
 
 const HomeScreen = ({navigation}) => {
 
